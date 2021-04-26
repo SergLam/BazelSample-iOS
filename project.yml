@@ -1,0 +1,21 @@
+name: BazelSample-iOS
+options:
+  bundleIdPrefix: com.serglam
+targets:
+  BazelSample:
+    type: application
+    platform: iOS
+    deploymentTarget: "11.0"
+    sources: [App]
+    dependencies:
+      - target: SwiftLibWithResources
+      - target: SwiftLib
+      - carthage: Nimble
+  SwiftLibWithResources:
+    type: framework
+    platform: iOS
+    sources: [Modules/SwiftLibWithResources]
+  SwiftLib:
+    type: framework
+    platform: iOS
+    sources: [Modules/SwiftLib]

@@ -11,11 +11,42 @@ targets:
       - target: SwiftLibWithResources
       - target: SwiftLib
       - carthage: Nimble
+        findFrameworks: false
+        linkType: static
+      - sdk: Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework
+        root: DEVELOPER_DIR
+    settings:
+        ENABLE_BITCODE: "NO"
+        VALID_ARCHS: "arm64 armv7 arm64-ios-simulator i386 and x86_64"
+  
   SwiftLibWithResources:
     type: framework
     platform: iOS
+    deploymentTarget: "11.0"
     sources: [Modules/SwiftLibWithResources]
+    dependencies:
+      - carthage: Nimble
+        findFrameworks: false
+        linkType: static
+      - sdk: Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework
+        root: DEVELOPER_DIR
+    settings:
+        ENABLE_BITCODE: "NO"
+        VALID_ARCHS: "arm64 armv7 arm64-ios-simulator i386 and x86_64"
   SwiftLib:
     type: framework
     platform: iOS
+    deploymentTarget: "11.0"
     sources: [Modules/SwiftLib]
+    dependencies:
+      - carthage: Nimble
+        findFrameworks: false
+        linkType: static
+      - sdk: Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework
+        root: DEVELOPER_DIR
+    settings:
+        ENABLE_BITCODE: "NO"
+        VALID_ARCHS: "arm64 armv7 arm64-ios-simulator i386 and x86_64"
+settings:
+    ENABLE_BITCODE: "NO"
+    VALID_ARCHS: "arm64 armv7 arm64-ios-simulator i386 and x86_64"
